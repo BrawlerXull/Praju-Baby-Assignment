@@ -1,0 +1,156 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": [
+    "tailwindcss",
+    "import"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "typescript": {}
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "overrides": [
+    {
+      "files": [
+        ".js"
+      ],
+      "extends": [
+        "airbnb-base",
+        "plugin:eslint-comments/recommended",
+        "plugin:import/recommended",
+        "plugin:tailwindcss/recommended",
+        "prettier"
+      ],
+      "rules": {
+        "eslint-comments/disable-enable-pair": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "import/no-cycle": [
+          "error",
+          {
+            "maxDepth": 1,
+            "ignoreExternal": true
+          }
+        ],
+        "no-underscore-dangle": "off",
+        "sort-keys": [
+          "error",
+          "asc",
+          {
+            "natural": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        ".js",
+        ".jsx",
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "airbnb-base",
+        "plugin:eslint-comments/recommended",
+        "plugin:import/recommended",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:react-hooks/recommended",
+        "plugin:tailwindcss/recommended",
+        "prettier"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "@typescript-eslint/member-ordering": [
+          "error",
+          {
+            "typeLiterals": {
+              "order": "natural"
+            }
+          }
+        ],
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ],
+        "eslint-comments/disable-enable-pair": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
+        ],
+        "import/extensions": "off",
+        "import/order": [
+          "error",
+          {
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "import/no-cycle": [
+          "error",
+          {
+            "maxDepth": 1,
+            "ignoreExternal": true
+          }
+        ],
+        "import/prefer-default-export": "off",
+        "max-classes-per-file": "off",
+        "no-underscore-dangle": "off"
+      }
+    },
+    {
+      "files": "src/apps/frontend/**",
+      "parserOptions": {
+        "project": "./src/apps/frontend/tsconfig.json"
+      }
+    }
+  ]
+}
